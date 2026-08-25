@@ -16,8 +16,8 @@ public class TestAPI {
         String expectedBoardId = "5ddaae0248ffb0348c37bf62";
         Response response = RestAssured.given()
                 .baseUri("https://api.trello.com/1")
-                .formParam("key", "f443f72c3f84d0828d42f8a689ff27cb")
-                .formParam("token", "ATTAb0226443103c5836901e815002c9d6e3057a28c8ea25b87b6bc87ef82468060dC40CBE14")
+                .formParam("key", "{REPLACE_KEY}")
+                .formParam("token", "{REPLACE_TOKEN}")
                 .contentType(ContentType.JSON)
                 .when()
                 .get("/members/me/boards");
