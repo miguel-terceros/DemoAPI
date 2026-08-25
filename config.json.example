@@ -1,0 +1,9 @@
+{
+  "ProjectName": "Demo API 2026",
+  "credentials": {
+    "owner": {
+      "key": "{REPLACE_TRELLO_KEY}",
+      "token": "{REPLACE_TRELLO_TOKEN}"
+    }
+  }
+}
