@@ -1,5 +1,6 @@
 {
   "ProjectName": "Demo API 2026",
+  "baseUri": "https://api.trello.com/1",
   "credentials": {
     "owner": {
       "key": "{REPLACE_TRELLO_KEY}",

@@ -8,9 +8,9 @@ public class RequestSpec {
 
     public static RequestSpecification getRequestSpec() {
         return new RequestSpecBuilder()
-                .setBaseUri("https://api.trello.com/1")
-                .addFormParam("key", Environment.getInstance().getValue("credentials.owner.key"))
-                .addFormParam("token", Environment.getInstance().getValue("credentials.owner.token"))
+                .setBaseUri(Environment.getInstance().getValue("baseUri"))
+                .addQueryParam("key", Environment.getInstance().getValue("credentials.owner.key"))
+                .addQueryParam("token", Environment.getInstance().getValue("credentials.owner.token"))
                 .build();
     }
 }
