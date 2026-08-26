@@ -1,0 +1,10 @@
+{
+  "ProjectName": "Demo API 2026",
+  "baseUri": "https://api.trello.com/1",
+  "credentials": {
+    "owner": {
+      "key": "f443f72c3f84d0828d42f8a689ff27cb",
+      "token": "ATTAb0226443103c5836901e815002c9d6e3057a28c8ea25b87b6bc87ef82468060dC40CBE14"
+    }
+  }
+}

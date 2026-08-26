@@ -16,8 +16,8 @@ public class TestAPI {
         String expectedBoardId = "5ddaae0248ffb0348c37bf62";
         Response response = RestAssured.given()
                 .baseUri("https://api.trello.com/1")
-                .formParam("key", "{REPLACE_KEY}")
-                .formParam("token", "{REPLACE_TOKEN}")
+                .queryParam("key", "{REPLACE_KEY}")
+                .queryParam("token", "{REPLACE_TOKEN}")
                 .contentType(ContentType.JSON)
                 .when()
                 .get("/members/me/boards");
@@ -33,15 +33,14 @@ public class TestAPI {
         String expectedBoardId = "5ddaae0248ffb0348c37bf62";
         Response response = RestAssured.given()
                 .baseUri("https://api.trello.com/1")
-                .formParam("key", Environment.getInstance().getValue("credentials.owner.key"))
-                .formParam("token", Environment.getInstance().getValue("credentials.owner.token"))
+                .queryParam("key", Environment.getInstance().getValue("credentials.owner.key"))
+                .queryParam("token", Environment.getInstance().getValue("credentials.owner.token"))
                 .contentType(ContentType.JSON)
                 .when()
                 .get("/members/me/boards");
 
         String actualBoardId = response.jsonPath().getString("[0].id");
         Assert.assertEquals(actualBoardId, expectedBoardId);
-
     }
 
     @Test
@@ -56,7 +55,5 @@ public class TestAPI {
 
         String actualBoardId = response.jsonPath().getString("[0].id");
         Assert.assertEquals(actualBoardId, expectedBoardId);
-
-
     }
 }
