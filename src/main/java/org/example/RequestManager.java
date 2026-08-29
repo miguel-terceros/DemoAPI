@@ -23,11 +23,15 @@ public class RequestManager {
      * @return the {@link Response} returned by the server
      */
     public static Response post(final RequestSpecification requestSpec, final String endpoint, final String body) {
-        return RestAssured.given(requestSpec)
+        final Response response = RestAssured.given(requestSpec)
                 .contentType(ContentType.JSON)
                 .when()
                 .body(body)
                 .post(endpoint);
+
+        System.out.println("POST");
+        System.out.println(response.prettyPrint());
+        return response;
     }
 
     /**
@@ -39,11 +43,15 @@ public class RequestManager {
      * @return the {@link Response} returned by the server
      */
     public static Response put(final RequestSpecification requestSpec, final String endpoint, final String body) {
-        return RestAssured.given(requestSpec)
+        final Response response = RestAssured.given(requestSpec)
                 .contentType(ContentType.JSON)
                 .when()
                 .body(body)
                 .put(endpoint);
+
+        System.out.println("PUT");
+        System.out.println(response.prettyPrint());
+        return response;
     }
 
     /**
@@ -54,10 +62,14 @@ public class RequestManager {
      * @return the {@link Response} returned by the server
      */
     public static Response get(final RequestSpecification requestSpec, final String endpoint) {
-        return RestAssured.given(requestSpec)
+        final Response response = RestAssured.given(requestSpec)
                 .contentType(ContentType.JSON)
                 .when()
                 .get(endpoint);
+
+        System.out.println("GET");
+        System.out.println(response.prettyPrint());
+        return response;
     }
 
     /**
@@ -68,9 +80,13 @@ public class RequestManager {
      * @return the {@link Response} returned by the server
      */
     public static Response delete(final RequestSpecification requestSpec, final String endpoint) {
-        return RestAssured.given(requestSpec)
+        final Response response = RestAssured.given(requestSpec)
                 .contentType(ContentType.JSON)
                 .when()
                 .delete(endpoint);
+
+        System.out.println("DELETE");
+        System.out.println(response.prettyPrint());
+        return response;
     }
 }
