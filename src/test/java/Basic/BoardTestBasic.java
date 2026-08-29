@@ -1,11 +1,15 @@
+package Basic;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class BoardTestBasic {
 
+    @Ignore("No Credentials")
     @Test
     public void testPOSTBoard() {
         // Given

@@ -56,9 +56,4 @@ public class Environment {
     public static Environment getInstance() { return instance; }
 
     public String getValue(final String keyJsonPath) { return jsonContext.read(keyJsonPath); }
-
-    public static void main(String[] args) {
-        System.out.println(Environment.getInstance().getValue("test"));
-        System.out.println(Environment.getInstance().getValue("credentials.owner.key"));
-    }
 }

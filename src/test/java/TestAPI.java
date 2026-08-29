@@ -3,12 +3,14 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import org.example.Environment;
-import org.example.RequestSpec;
+import org.example.RequestSpecFactory;
 import org.testng.Assert;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 public class TestAPI {
 
+    @Ignore("No Credentials")
     @Test
     public void testGetBoardsBasic() {
 
@@ -32,7 +34,7 @@ public class TestAPI {
         // LVL ONE -> Implement config file
         String expectedBoardId = "5ddaae0248ffb0348c37bf62";
         Response response = RestAssured.given()
-                .baseUri("https://api.trello.com/1")
+                .baseUri(Environment.getInstance().getValue("baseUri"))
                 .queryParam("key", Environment.getInstance().getValue("credentials.owner.key"))
                 .queryParam("token", Environment.getInstance().getValue("credentials.owner.token"))
                 .contentType(ContentType.JSON)
@@ -48,7 +50,7 @@ public class TestAPI {
 
         // LV TWO -> Implement RequestSpec
         String expectedBoardId = "5ddaae0248ffb0348c37bf62";
-        Response response = RestAssured.given(RequestSpec.getRequestSpec())
+        Response response = RestAssured.given(RequestSpecFactory.getRequestSpec("trello"))
                 .contentType(ContentType.JSON)
                 .when()
                 .get("/members/me/boards");
